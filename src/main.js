@@ -12,12 +12,12 @@ try {
   var config = ini.decode(fs.readFileSync(path.join(__dirname, "../.config/config.ini"), 'utf-8'));
   var debug = config.display.show_debug_console;
   if(debug == 0){console.log = function() {}} else{console.log("Debug mode on, showing log")}
-  var listenPath = os.homedir() + config.directories.replay_directory_from_home;
+  var listenPath = os.homedir() + config.directories.replay_directory_from_home + "\\2024-10"; // TODO: Get value from UTC date
   client = require('discord-rich-presence')(config.discord.application_id);
   console.log(`Using Application ID ${config.discord.application_id}`);
 } catch (error) {
   console.log("No config found or config error, using defaults...");
-  var listenPath = os.homedir() + "\\Documents\\Slippi";
+  var listenPath = os.homedir() + "\\Documents\\Slippi\\2024-10"; // TODO: Get value from UTC date
   client = require('discord-rich-presence')('1125092736404570123');
 }
 
